@@ -66,9 +66,6 @@ private:
 
 	UPROPERTY(BlueprintReadWrite, FieldNotify, Getter = "GetCurContextIsPLayerSide", meta = (AllowPrivateAccess = true))
 	bool CurContextIsPlayerSide;
-
-	UPROPERTY(BlueprintReadWrite, FieldNotify, Getter = "GetIsContextMenuVisible", meta = (AllowPrivateAccess = true))
-	bool bIsContextMenuVisible;
 	//~End ToolTip and Context
 
 public:
@@ -124,7 +121,6 @@ public:
 	void ClearContextMenu();
 	
 	FItemEncodedInfo GetHoveredItemInfo() const { return HoveredItemInfo; }
-	bool GetIsContextMenuVisible() const { return bIsContextMenuVisible; }
 	FItemEncodedInfo GetContextMenuItemInfo() const { return ContextMenuItemInfo; }
 	bool GetCurContextIsPLayerSide() const { return CurContextIsPlayerSide; }
 	//~End Tooltips

@@ -118,11 +118,8 @@ void UItemListViewModel::HandleItemRightClick(const FItemEncodedInfo& ItemInfo, 
 	ContextMenuItemInfo = ItemInfo;
 	UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(ContextMenuItemInfo);
 
-	bIsContextMenuVisible = bIsPlayerSide;
-	UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(bIsContextMenuVisible);
-
-	bIsContextMenuVisible = true;
-	UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(bIsContextMenuVisible);
+	CurContextIsPlayerSide = bIsPlayerSide;
+	UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(CurContextIsPlayerSide);
 }
 
 void UItemListViewModel::HandleItemHover(const FItemEncodedInfo& ItemInfo, bool bIsPlayerSide)
@@ -141,11 +138,8 @@ void UItemListViewModel::HandleItemUnhover(const FItemEncodedInfo& ItemInfo, boo
 
 void UItemListViewModel::ClearContextMenu()
 {
-	if (bIsContextMenuVisible)
-	{
-		bIsContextMenuVisible = false;
-		UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(bIsContextMenuVisible);
-	}
+	ContextMenuItemInfo = FItemEncodedInfo();
+	UE_MVVM_BROADCAST_FIELD_VALUE_CHANGED(ContextMenuItemInfo);
 }
 
 void UItemListViewModel::UpdateDisplayedPlayerItems()
